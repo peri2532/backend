@@ -2,7 +2,7 @@ package day02;
 
 import java.util.Scanner;
 
-public class exam01 {
+public class Practice1 {
     public static void main(String[] args) {
         //1. 리터럴: 개발언어에서 미리 정해진 값들을 = 상수
 
@@ -41,7 +41,36 @@ public class exam01 {
 
         //8
         Scanner scanner = new Scanner(System.in);
+        System.out.println("8] 이름 : ");
+        String 이름 = scanner.next();// console에서 입력받은 자료를 문자열로 변환
+        System.out.println("8] 나이 : ");
+        int 나이 = scanner.nextInt(); //console에서 입력받은 자료를 정수로 변환
+        System.out.printf("%s님의 나이는 %d 입니다. \n" , 이름, 나이);
 
+        //9. Scanner 객체는 동일한 { } 내 하나만 존재하면 된다.
+        //주의할점 : nextLine() 앞에 다른 next() 존재하면 의미없는 nextLine() 필요하다.
+        System.out.println("9] 게시물 번호 : "); int bno = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("9] 제목 : "); String title = scanner.nextLine();
+        System.out.println("9] 내용 : "); String content1= scanner.nextLine();
+        System.out.printf("[ %d번 게시물] \n",bno);
+        System.out.printf("제목 : %s \n ", title);
+        System.out.printf("내용 : %s \n ", content1);
+
+        //10.문자 입력받기, .next().charAt(0)
+        System.out.println("10] 성별을 입력하세요(남/여) : "); char sex = scanner.next().charAt(0); //입력받은 첫글자만 반환
+        System.out.printf("입력하신 성별은 \'%c\' 입니다. \n",sex);
+
+        //11.
+        System.out.println("이름 : "); String name1 = scanner.next();
+        System.out.println("키 : "); double height1 =  scanner.nextDouble();
+        System.out.println("나이 : "); int age1 = scanner.nextInt();
+        System.out.println("프로그래머입니까?(true/false"); boolean 여부 = scanner.nextBoolean();
+        System.out.println("--- 자기소개 ---");
+        System.out.println("이름 : " + name1);
+        System.out.println("키: "+height1);
+        System.out.println("나이: "+age1);
+        System.out.println("프로그래머여부 : "+ 여부);
     }
 }
 /*[실습] * 제출용 */

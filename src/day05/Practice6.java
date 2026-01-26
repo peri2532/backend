@@ -95,7 +95,7 @@ public class Practice6 {
             if( useTime <= 30 ){ money = 1000; }
             else{
                 money = ( useTime - 30 ) / 10 ; // 사용시간 나누기 10분
-                money *= 5000; // 10분당 5000원
+                money *= 500; // 10분당 500원
                 money += 1000; // 기본요금 1000원
             }
             // 만약에 금액이 2만원 이상이면 2만원 아니면 금액그대로

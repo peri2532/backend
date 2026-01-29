@@ -1,4 +1,4 @@
-package 종합예제4;
+package 종합.예제4;
 
 public class BoardController {
     Board[] boards = new Board[100];

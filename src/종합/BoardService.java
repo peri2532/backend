@@ -1,6 +1,4 @@
-package 종합예제;
-
-import java.util.Scanner;
+package 종합;
 
 public class BoardService {
     public static void main(String[] args) {

@@ -37,7 +37,6 @@ public class Practice11 {
         //[문제7]
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         ArrayList<String> inputList = new ArrayList<>();
-
         while (true) {
             System.out.print("문자열 입력 (종료 입력 시 멈춤): ");
             String input = scanner.nextLine();
@@ -49,17 +48,12 @@ public class Practice11 {
         }
         System.out.println("저장된 내용: " + inputList);
         //[문제8]
-        // 1. 리스트 생성 및 초기화
         ArrayList<String> subjects = new ArrayList<>();
         subjects.add("국어");
         subjects.add("수학");
         subjects.add("사회");
         subjects.add("과학");
-
-        // 2. 1번 인덱스의 "수학"을 "영어"로 수정
         subjects.set(1, "영어");
-
-        // 3. 결과 출력
         System.out.println("수정 후 리스트: " + subjects);
     } // main end
 } // class end

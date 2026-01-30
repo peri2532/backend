@@ -16,8 +16,8 @@ public class WaitingDao {
     public boolean doPost(String number , int person){
         WaitingDto waitingDto = new WaitingDto(currentNo , number , person);
 
-        boolean result = waitings.add(WaitingDto);
-        currenNo++;
+        boolean result = waitings.add(waitingDto);
+        currentNo++;
         return result;
     }
     public ArrayList<WaitingDto>doGet(){

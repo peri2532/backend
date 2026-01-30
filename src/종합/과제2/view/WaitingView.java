@@ -42,7 +42,7 @@ public class WaitingView {
     ArrayList<WaitingDto> waitings = wc.doGet();
 
     for(WaitingDto waiting : waitings){
-        System.out.println("번호 : %d , 전화번호 : %s , 인원 수: %d \n",
+        System.out.printf("번호 : %d , 전화번호 : %s , 인원 수: %d \n",
                 waiting.getNo(),waiting.getNumber(), waiting.getPerson());
 
         }

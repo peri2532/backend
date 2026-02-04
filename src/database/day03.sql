@@ -98,7 +98,7 @@ create table buy(
     constraint foreign key ( mid ) references member(mid) # 제약조건
 );
 # 샘플데이터
-INSERT INTO member VALUES('TWC', '트와이스', 9, '서울', '02', '11111111', 167, '2015.10.19');
+INSERT INTO member VALUES('TWC', '트와이스', 9, '서울', '02', '11111111', 167, '2015.10.19');  
 INSERT INTO member VALUES('BLK', '블랙핑크', 4, '경남', '055', '22222222', 163, '2016.08.08');
 INSERT INTO member VALUES('WMN', '여자친구', 6, '경기', '031', '33333333', 166, '2015.01.15');
 INSERT INTO member VALUES('OMY', '오마이걸', 7, '서울', NULL, NULL, 160, '2015.04.21');
@@ -134,3 +134,24 @@ select distinct maddr as 주소 from member; -- 회원테이블의 주소 속성
 select mnumber + 3 as 더하기, mnumber - 3 as 빼기 ,
 		mnumber / 3 as 나누기 , mnumber * 3 as 곱하기, 
         mnumber div 3 as 몫 , mnumber mod 3 as 나머지 from member;
+	
+#4] 비교 연산자 
+select * from member where mname = "블랙핑크";  				 -- = 같다
+select * from member where mnumber = 4; 
+select * from member where mname != "블랙핑크"; 				 -- != 같지않다
+select * from member where not mname = "블랙핑크"; 			 -- not 비교연산
+select * from member where mheight <=162 ;                   -- <= 이하
+select * from member where mheight >= 162 and mheight <=170; -- and 이면서
+select * from member where mheight between 165 and 170;  	 -- 속성명 between 시작값 and 끝값
+select * from member where maddr = "경기" or maddr = "전남" or maddr = "경남"; -- or 이거나
+select * from member where maddr in("경기", "전남", "경남");  -- 속성명 in(값1, 값2, 값3);
+#주의할점 : null(자료없다 뜻) 비교 연산자 별도 존재
+select * from member where mphone1 = null; -- 비교 불가능
+select * from member where mphone1 is null; -- 비교 가능
+select * from member where mphone1 is not null; -- 비교 가능
+#문자패턴: 속성명 like '문자패턴' , 1) %: 문자 대응(개수상관없다) 2) _ : 문자대응(_개수만큼 대응)
+select * from member where mname like "에이%"; 		-- mname속성값이 "에이"로 시작하는 문자
+select * from member where mname like "에이_";  		-- mname속성값이 "에이"로 시작하면서 3글자 문자
+select * from member where mname like "%핑크"; 		-- "핑크"로 끝나는 문자
+select * from member where mname like "%이%";		-- "이"가 포함된 문자
+select * from member where mname like "_이%";		-- 두번째 글자가 "이"인 문자

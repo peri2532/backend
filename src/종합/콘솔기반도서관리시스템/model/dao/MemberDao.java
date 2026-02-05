@@ -5,24 +5,24 @@ import java.util.ArrayList;
 
 public class MemberDao {
 
-    // ✅ 1. 생성자 숨기기
+    // 1. 생성자 숨기기
     private MemberDao() {}
 
-    // ✅ 2. 단 하나의 객체 생성
+    // 2. 단 하나의 객체 생성
     private static final MemberDao instance = new MemberDao();
 
-    // ✅ 3. 외부에서 객체를 가져갈 수 있는 메서드
+    // 3. 외부에서 객체를 가져갈 수 있는 메서드
     public static MemberDao getInstance() {
         return instance;
     }
 
     // -----------------------------------------
-    // ✅ 실제 데이터 저장소 (회원 목록)
+    // 실제 데이터 저장소 (회원 목록)
     // -----------------------------------------
     private static ArrayList<MemberDto> memberList = new ArrayList<>();
 
     // -----------------------------------------
-    // ✅ 기능 메서드
+    // 기능 메서드
     // -----------------------------------------
 
     // 회원가입

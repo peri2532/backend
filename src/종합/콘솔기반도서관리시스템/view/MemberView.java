@@ -5,24 +5,24 @@ import java.util.Scanner;
 
 public class MemberView {
 
-    // ✅ 1. 생성자 숨기기
+    // 1. 생성자 숨기기
     private MemberView() {}
 
-    // ✅ 2. 단 하나의 객체 생성
+    // 2. 싱글톤 생성
     private static final MemberView instance = new MemberView();
 
-    // ✅ 3. 외부에서 접근할 수 있도록 제공
+    // 3. 외부에서 접근할 수 있도록 제공
     public static MemberView getInstance() {
         return instance;
     }
 
-    // ✅ 필요한 싱글톤 객체들 연결
+    // 필요한 싱글톤 객체들 연결
     private MemberController memberController = MemberController.getInstance();
     private BookView bookView = BookView.getInstance();
     private Scanner sc = new Scanner(System.in);
 
     // -----------------------------------------
-    // ✅ 메인 메뉴
+    // 메인 메뉴
     // -----------------------------------------
 
     public void mainMenu() {

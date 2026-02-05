@@ -5,23 +5,23 @@ import java.util.ArrayList;
 
 public class BookDao {
 
-    // ✅ 싱글톤: 단 하나의 객체만 생성
+    //  싱글톤: 단 하나의 객체만 생성
     private static final BookDao instance = new BookDao();
 
-    // ✅ 책 목록 저장소
+    // 책 목록 저장소
     private static ArrayList<BookDto> bookList = new ArrayList<>();
     private static int seq = 1;
 
-    // ✅ 외부에서 생성자 접근 금지
+    // 외부에서 생성자 접근 금지
     private BookDao() {}
 
-    // ✅ 객체 반환 메서드
+    // 객체 반환 메서드
     public static BookDao getInstance() {
         return instance;
     }
 
     // --------------------------------------
-    // 🧩 기능 메서드
+    // 기능 메서드
     // --------------------------------------
 
     // 책 등록

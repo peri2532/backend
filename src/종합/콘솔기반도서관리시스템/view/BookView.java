@@ -7,23 +7,23 @@ import java.util.Scanner;
 
 public class BookView {
 
-    // ✅ 1. 생성자 숨기기
+    // 1. 생성자 숨기기
     private BookView() {}
 
-    // ✅ 2. 단 하나의 객체 생성
+    // 2. 싱글톤 생성
     private static final BookView instance = new BookView();
 
-    // ✅ 3. 외부에서 접근할 수 있도록 제공
+    // 3. 외부에서 접근할 수 있도록 제공
     public static BookView getInstance() {
         return instance;
     }
 
-    // ✅ Controller도 싱글톤으로 연결
+    // Controller도 싱글톤으로 연결
     private BookController bookController = BookController.getInstance();
     private Scanner sc = new Scanner(System.in);
 
     // -----------------------------------------
-    // ✅ 도서 메뉴 메서드
+    // 도서 메뉴 메서드
     // -----------------------------------------
 
     public void bookMenu() {

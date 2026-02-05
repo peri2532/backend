@@ -7,22 +7,22 @@ import java.util.ArrayList;
 
 public class BookController {
 
-    // ✅ 1. 생성자 숨기기
+    // 1. 생성자 숨기기
     private BookController() {}
 
-    // ✅ 2. 단 하나의 객체 생성
+    // 2. 싱글톤
     private static final BookController instance = new BookController();
 
-    // ✅ 3. 외부에서 사용할 수 있도록 getInstance() 제공
+    // 3. 외부에서 사용할 수 있도록 getInstance() 제공
     public static BookController getInstance() {
         return instance;
     }
 
-    // ✅ BookDao도 싱글톤으로 사용
+    // BookDao도 싱글톤으로 사용
     private BookDao bookDao = BookDao.getInstance();
 
     // -----------------------------------------
-    // ✅ 기능 메서드
+    // 기능 메서드
     // -----------------------------------------
 
     // 도서 등록

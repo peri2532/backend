@@ -4,22 +4,22 @@ import 종합.콘솔기반도서관리시스템.model.dao.MemberDao;
 
 public class MemberController {
 
-    // ✅ 1. 생성자 숨기기
+    //  1. 생성자 숨기기
     private MemberController() {}
 
-    // ✅ 2. 단 하나의 객체 생성
+    // 2. 싱글톤 생성
     private static final MemberController instance = new MemberController();
 
-    // ✅ 3. 외부에서 접근할 수 있도록 제공
+    //  3. 외부에서 접근할 수 있도록 제공
     public static MemberController getInstance() {
         return instance;
     }
 
-    // ✅ DAO도 싱글톤으로 연결
+    //  DAO도 싱글톤으로 연결
     private MemberDao memberDao = MemberDao.getInstance();
 
     // -----------------------------------------
-    // ✅ 기능 메서드
+    //  기능 메서드
     // -----------------------------------------
 
     // 회원가입

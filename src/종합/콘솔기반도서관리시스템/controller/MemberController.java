@@ -1,36 +1,34 @@
 package 종합.콘솔기반도서관리시스템.controller;
 
-import 종합.회원제중고거래시스템.model.dao.MemberDao;
+import 종합.콘솔기반도서관리시스템.model.dao.MemberDao;
 
 public class MemberController {
-    private MemberController(){}
+
+    // ✅ 1. 생성자 숨기기
+    private MemberController() {}
+
+    // ✅ 2. 단 하나의 객체 생성
     private static final MemberController instance = new MemberController();
-    public static MemberController getInstance(){return instance; }
-    private MemberDao md = MemberDao.getInstance();
 
-    public boolean signup(String mid, String mpw, String mname, String mphone){
-        System.out.println("MemberController.signup");
-        System.out.println("mid = "+ mid + ", mpw = " + mpw + ", mname = " + mname + ", mphone = " + mphone);
-
-        boolean result = md.signup(mid, mpw, mname, mphone);
-        return result;
-
+    // ✅ 3. 외부에서 접근할 수 있도록 제공
+    public static MemberController getInstance() {
+        return instance;
     }
 
-    private int loginSession = 0;
-    public int getLoginSession(){return loginSession}
-    public boolean login(String mid, String mpw){
-        System.out.println("MemberController.login");
-        System.out.println("mid = " + mid + ", mpw = " + mpw);
-        int result = md.login( mid , mpw );
-        if( result > 0 ){  // 만약에 반환값이 0초과 이면 회원번호 저장
-            loginSession = result; return true; // 세션(변수) 부여
-        }
-        return false;
+    // ✅ DAO도 싱글톤으로 연결
+    private MemberDao memberDao = MemberDao.getInstance();
+
+    // -----------------------------------------
+    // ✅ 기능 메서드
+    // -----------------------------------------
+
+    // 회원가입
+    public boolean signUp(String id, String pw) {
+        return memberDao.join(id, pw);
     }
-    public boolean logout(){
-        loginSession = 0;
-        return true;
+
+    // 로그인
+    public boolean signIn(String id, String pw) {
+        return memberDao.login(id, pw);
     }
 }
-

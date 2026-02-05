@@ -1,35 +1,47 @@
 package 종합.콘솔기반도서관리시스템.controller;
 
 
-import 종합.회원제중고거래시스템.model.dao.MemberDao;
-
+import 종합.콘솔기반도서관리시스템.model.dao.BookDao;
+import 종합.콘솔기반도서관리시스템.model.dto.BookDto;
 import java.util.ArrayList;
 
 public class BookController {
-    private BookController(){}
+
+    // ✅ 1. 생성자 숨기기
+    private BookController() {}
+
+    // ✅ 2. 단 하나의 객체 생성
     private static final BookController instance = new BookController();
-    public static BookController getInstance(){return instance;}
 
-    private BookController bc = BookController.getInstance();
-
-    public boolean add(String btitle, String bauthor,String bname){
-        int loginMno = MemberController.getInstance().getLoginSession();
-        boolean result = bc.add(btitle, bauthor, bname, loginMno);
-        return result;
+    // ✅ 3. 외부에서 사용할 수 있도록 getInstance() 제공
+    public static BookController getInstance() {
+        return instance;
     }
 
-    public ArrayList<BookDto> findAll(){
-        ArrayList<BookDto> result = bd.findall();
-        for(int index= 0; index <= result.size() - 1; index ++){
-            BookDto bookDto = result.get(index);
+    // ✅ BookDao도 싱글톤으로 사용
+    private BookDao bookDao = BookDao.getInstance();
 
-            String bname = MemberDao.getInstance().findMname(bookDto.getMno());
-            productDto.setMnae(bname);
-        }
-        return result;
+    // -----------------------------------------
+    // ✅ 기능 메서드
+    // -----------------------------------------
+
+    // 도서 등록
+    public void registerBook(String title, String author) {
+        bookDao.addBook(title, author);
     }
 
+    // 전체 도서 조회
+    public ArrayList<BookDto> getAllBooks() {
+        return bookDao.getBooks();
+    }
 
+    // 도서 대여
+    public boolean rentBook(int id) {
+        return bookDao.rentBook(id);
+    }
 
+    // 도서 반납
+    public boolean returnBook(int id) {
+        return bookDao.returnBook(id);
+    }
 }
-
